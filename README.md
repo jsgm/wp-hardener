@@ -8,7 +8,7 @@ wp-hardener is a ready to use plugin which adds an extra layer of security and p
 * SSL Certificate enabled and installed.
 
 # Features
-In case you need a specific feature not being disabled, modify the wphardener.php file before install. At firsts lines you'll find some constants like shown here. Set to FALSE.
+In case you need a specific feature not being disabled, modify the ***plugin.php*** file before install. At firsts lines you'll find some constants like shown here. Set to FALSE.
 
 ```php
 define("DISABLE_OEMBED", FALSE); 
