@@ -34,4 +34,4 @@ define("DISABLE_OEMBED", FALSE);
 # Tested on
 | WP Version | Working |
 |--|--|
-| 5.4.1 | [x] |
+| 5.4.1 | &check; |
