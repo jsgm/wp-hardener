@@ -22,6 +22,11 @@ if(!defined("PHP_INT_MIN")){
     define('PHP_INT_MIN', ~PHP_INT_MAX);
 }
 
+if(!defined("FORCE_SSL_ADMIN")){
+    // Forces SSL on admin panel.
+    define("FORCE_SSL_ADMIN", TRUE);
+}
+
 if(!defined('DISALLOW_FILE_EDIT')){
     // Disables embebbed file editor.
     define('DISALLOW_FILE_EDIT', TRUE);

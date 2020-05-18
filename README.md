@@ -15,6 +15,7 @@ define("DISABLE_OEMBED", FALSE);
 ```
 
 # Security features
+- Forces SSL for /wp-admin.
 - Disables file editor.
 - Removes file versions if WP_DEBUG is set to FALSE.
 - Fully disables XMLRPC.
