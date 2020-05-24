@@ -9,8 +9,6 @@ Author URI: https://github.com/jsgm
 */
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
-require "inc/admin.php";
-
 if(!defined("ABSPATH")){
     header('HTTP/1.0 403 Forbidden');
     die();
@@ -67,11 +65,15 @@ define("CHANGE_LOGIN_URL", TRUE);
 define("NEW_LOGIN_URL", "url");
 define("DISABLE_URL_GUESSING", TRUE);
 define("REPLACE_JQUERY_WITH_GOOGLE_CDN", TRUE);
+define("DISABLE_API", TRUE);
 
 class wphardener{
     public function __construct(){
         if(REPLACE_JQUERY_WITH_GOOGLE_CDN){
             //
+        }
+        if(DISABLE_API){
+            $this->disable_api();
         }
         if(ADD_SECURITY_HEADERS){
             $this->security_headers();
@@ -120,9 +122,21 @@ class wphardener{
         }
     }
 
+    private function disable_api(){
+        add_action( 'rest_api_init', function(){
+            if(!current_user_can("manage_options")){
+                $whitelist = array('127.0.0.1', "::1");
+                if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
+                    die('REST API is disabled.');
+                }
+            }
+        }, 1);
+    }
+
     private function is_admin_login(){
         return ($GLOBALS['pagenow'] === 'wp-login.php' ? true : false);
     }
+    
     private function block_crawlers_on_login(){
         // Block crawlers in login page.
         add_action("init", function(){
