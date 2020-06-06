@@ -14,10 +14,6 @@ if(!defined("ABSPATH")){
     die();
 }
 
-if(!is_ssl()){
-    throw new Exception("SSL is required to install wp-hardener.");
-}
-
 if(!defined("PHP_INT_MIN")){
     // For WP versions < 5.5
     define('PHP_INT_MIN', ~PHP_INT_MAX);
@@ -228,6 +224,9 @@ class wphardener{
     }
 
     private function remove_headers(){
+        // Try to remove X-Powered-By if possible.
+        header_remove('X-Powered-By');
+
         // Removes unnecesary headers.
         remove_action('template_redirect', 'rest_output_link_header', 11, 0);
     }
@@ -367,7 +366,13 @@ class wphardener{
     }
     
     private function hide_wordpress_generator(){
+        // Removes the meta generator tag with WP version
         remove_action("wp_head", "wp_generator");
+
+        // Hides version from wp-admin footer
+        add_action("admin_menu", function(){
+            remove_filter('update_footer', 'core_update_footer');
+        });
     }
 }
 

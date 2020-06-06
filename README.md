@@ -28,8 +28,10 @@ define("DISABLE_OEMBED", FALSE);
 - Adds security headers. You can checkout yours on [securityheaders.com](https://securityheaders.com/)
 - Disables oEmbed.
 - Removes Link HTTP header.
+- Removes "X-Powered-By" HTTP header if possible.
 - Disables WordPress URL guessing.
 - Will send a 404 response in wp-login.php if the User-Agent is not legit. This will add a little help to stop brute-force attacks altought it's easy to bypass.
+- Hide version from wp-admin footer.
 
 # Performance features
 - Disables [wptexturize](https://developer.wordpress.org/reference/functions/wptexturize/).
