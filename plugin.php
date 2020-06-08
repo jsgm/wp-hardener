@@ -63,6 +63,7 @@ define("DISABLE_URL_GUESSING", TRUE);
 define("REPLACE_JQUERY_WITH_GOOGLE_CDN", TRUE);
 define("DISABLE_API", TRUE);
 define("DISABLE_GUTENBERG_BLOCK_LIBRARY", TRUE);
+define("BLOCK_EMPTY_USER_AGENTS", FALSE);
 
 class wphardener{
     public function __construct(){
@@ -120,8 +121,18 @@ class wphardener{
         if(DISABLE_GUTENBERG_BLOCK_LIBRARY){
             $this->disable_block_library();
         }
+        if(BLOCK_EMPTY_USER_AGENTS){
+            $this->block_empty_user_agents();
+        }
     }
 
+    private function block_empty_user_agents(){
+        if(!isset($_SERVER['HTTP_USER_AGENT']) || strlen(trim($_SERVER['HTTP_USER_AGENT'])) == 0){
+            header('HTTP/1.0 403 Forbidden');
+            header("Content-type:text/plain; charset=utf-8");
+            exit;
+        }
+    }
     private function disable_block_library(){
         add_action( 'wp_print_styles', function(){
             wp_dequeue_style('wp-block-library');

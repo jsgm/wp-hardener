@@ -32,6 +32,7 @@ define("DISABLE_OEMBED", FALSE);
 - Disables WordPress URL guessing.
 - Will send a 404 response in wp-login.php if the User-Agent is not legit. This will add a little help to stop brute-force attacks altought it's easy to bypass.
 - Hide version from wp-admin footer.
+- Blocks empty User-Agent requests.
 
 # Performance features
 - Disables [wptexturize](https://developer.wordpress.org/reference/functions/wptexturize/).
