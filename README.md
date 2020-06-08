@@ -38,6 +38,7 @@ define("DISABLE_OEMBED", FALSE);
 - Limit [posts revisions](https://kinsta.com/knowledgebase/wordpress-revisions/) to 3. 
 - Disables [emojis](https://kinsta.com/knowledgebase/disable-emojis-wordpress/).
 - Switchs local jQuery files to Google jQuery CDN.
+- Disables Gutenberg block library CSS file.
 
 # Tested on
 | WP Version | Working |

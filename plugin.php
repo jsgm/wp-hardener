@@ -62,6 +62,7 @@ define("NEW_LOGIN_URL", "url");
 define("DISABLE_URL_GUESSING", TRUE);
 define("REPLACE_JQUERY_WITH_GOOGLE_CDN", TRUE);
 define("DISABLE_API", TRUE);
+define("DISABLE_GUTENBERG_BLOCK_LIBRARY", TRUE);
 
 class wphardener{
     public function __construct(){
@@ -116,6 +117,15 @@ class wphardener{
         if(DISABLE_URL_GUESSING){
             $this->disable_url_guessing();
         }
+        if(DISABLE_GUTENBERG_BLOCK_LIBRARY){
+            $this->disable_block_library();
+        }
+    }
+
+    private function disable_block_library(){
+        add_action( 'wp_print_styles', function(){
+            wp_dequeue_style('wp-block-library');
+        }, 100);
     }
 
     private function disable_api(){
