@@ -1,22 +1,20 @@
 ![License](https://img.shields.io/github/license/jsgm/wp-hardener)
 
-!!! This plugin is not finished yet but it's fine to use in the current version in a production enviroment.
-
 # wp-hardener
 wp-hardener is a ready to use plugin which adds an extra layer of security and performance improvements to your WordPress. Most of the features listed here are a recopillation from functions that I've used in different WordPress sites. 
 
-# Requeriments
+## Requeriments
 * WP 5.4.1 or higher.
 * SSL Certificate enabled and installed.
 
-# Disabling options
+## Disabling options
 In case you need a specific feature not being disabled, modify the ***plugin.php*** file before install. At firsts lines you'll find some constants like shown here. Set to FALSE.
 
 ```php
 define("DISABLE_OEMBED", FALSE); 
 ```
 
-# Security features
+## Security features
 - Forces SSL for /wp-admin.
 - Disables the built-in file editor.
 - Removes files versions from URLs if WP_DEBUG is set to FALSE.
@@ -34,14 +32,19 @@ define("DISABLE_OEMBED", FALSE);
 - Hide version from wp-admin footer.
 - Blocks empty User-Agent requests.
 
-# Performance features
+## Performance features
 - Disables [wptexturize](https://developer.wordpress.org/reference/functions/wptexturize/).
 - Limit [posts revisions](https://kinsta.com/knowledgebase/wordpress-revisions/) to 3. 
 - Disables [emojis](https://kinsta.com/knowledgebase/disable-emojis-wordpress/).
 - Switchs local jQuery files to Google jQuery CDN.
 - Disables Gutenberg block library CSS file.
 
-# Tested on
+## Tested on
 | WP Version | Working |
 |--|--|
+| 5.8.1 | &check; |
+| 5.8 | &check; |
+| 5.7 | &check; |
+| 5.6 | &check; |
+| 5.5 | &check; |
 | 5.4.1 | &check; |
