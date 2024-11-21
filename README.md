@@ -1,3 +1,6 @@
+> [!CAUTION]
+> **This plugin is no longer maintained.** If you're still interested, please check out [**perpetual-wp**](https://github.com/jsgm/perpetual-wp).
+
 ![License](https://img.shields.io/github/license/jsgm/wp-hardener)
 
 # wp-hardener
